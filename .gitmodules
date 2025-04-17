@@ -1,0 +1,3 @@
+[submodule "Ghidra/Extensions/GhidraMCP"]
+	path = Ghidra/Extensions/GhidraMCP
+	url = ../GhidraMCP
