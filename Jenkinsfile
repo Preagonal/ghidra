@@ -120,20 +120,23 @@ def buildStepDocker() {
 											sh(returnStdout: true, script: "echo -e '${release_type_tag} releases' > ../RELEASE_DESCRIPTION.txt");
 										}
 
-										def files = sh(returnStdout: true, script: 'find . -name "*.zip" -o -name "*.tar.gz"');
-										files = sh (script: "basename ${files}",returnStdout:true).trim()
+										def files = sh(returnStdout: true, script: 'find . -name "*.zip" -o -name "*.tar.gz"').split('\n');
 
 										try {
 											sh "cat ../RELEASE_DESCRIPTION.txt | github-release release --user Preagonal --repo ghidra --tag ${release_type_tag} --name \"Ghidra ${release_type_tag}\" ${pre_release} --description -"
 										} catch(err) {
 
 										}
-										try {
-											sh "github-release upload --user Preagonal --repo ghidra --tag ${release_type_tag} --name \"${files}\" --file ${files} --replace"
-										} catch(err) {
-											sleep 15;
-											sh "github-release upload --user Preagonal --repo ghidra --tag ${release_type_tag} --name \"${files}\" --file ${files} --replace"
-										}
+
+										files.eachWithIndex { file, idx -> 
+											file = sh (script: "basename ${file}",returnStdout:true).trim();
+											try {
+												sh "github-release upload --user Preagonal --repo ghidra --tag ${release_type_tag} --name \"${file}\" --file ${file} --replace";
+											} catch(err) {
+												sleep 15;
+												sh "github-release upload --user Preagonal --repo ghidra --tag ${release_type_tag} --name \"${file}\" --file ${file} --replace";
+											}
+										}​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​
 									}
 								}
 							}
