@@ -1,3 +1,6 @@
 [submodule "Ghidra/Extensions/GhidraMCP"]
 	path = Ghidra/Extensions/GhidraMCP
 	url = ../GhidraMCP
+[submodule "Ghidra/Extensions/ExtractCPPStruct"]
+	path = Ghidra/Extensions/ExtractCPPStruct
+	url = ../Ghidra.Plugins.ExtractCPPStruct

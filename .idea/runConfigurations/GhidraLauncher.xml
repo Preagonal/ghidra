@@ -8,7 +8,7 @@
     <option name="VM_PARAMETERS" value="-cp ./support/../Ghidra/Framework/Utility/lib/Utility.jar -Duser.name=CHANGEME -Djava.system.class.loader=ghidra.GhidraClassLoader -Dfile.encoding=UTF8 -Duser.country=US -Duser.language=en -Duser.variant= -Dsun.java2d.opengl=false -Dhttps.protocols=TLSv1,TLSv1.1,TLSv1.2 -Dghidra.cacerts= -Dcpu.core.limit= -Dcpu.core.override= -Dfont.size.override= -Dsun.java2d.pmoffscreen=false -Dsun.java2d.xrender=true -Dsun.java2d.uiScale=1 -Dawt.useSystemAAFontSettings=on -showversion" />
     <method v="2">
       <option name="Make" enabled="true" />
-      <option name="Gradle.BeforeRunTask" enabled="false" tasks=":GhidraMCP:jar" externalProjectPath="$PROJECT_DIR$" vmOptions="" scriptParameters="--parallel" />
+      <option name="Gradle.BeforeRunTask" enabled="false" tasks=":GhidraMCP:jar :ExtractCPPStruct:jar" externalProjectPath="$PROJECT_DIR$" vmOptions="" scriptParameters="--parallel" />
     </method>
   </configuration>
 </component>
