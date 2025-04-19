@@ -89,11 +89,11 @@ def buildStepDocker() {
 			if (PUSH_ARTIFACT) {
 				stage("Archiving artifacts...") {
 					customImage.inside("") {
-						sh "mkdir -p ./dist && cp -fvr build/dist/* ./dist"
+						sh "mkdir -p ./dist && cp -fvr /home/gradle/src/build/dist/* ./dist"
 
 						dir("./dist") {
 							archiveArtifacts artifacts: '*.zip,*.tar.gz,*.tgz', allowEmptyArchive: true
-							discordSend description: "Docker Image: ${DOCKER_ROOT}/${DOCKERIMAGE}:${tag}", footer: "", link: env.BUILD_URL, result: currentBuild.currentResult, title: "[${split_job_name[0]}] Artifact Successful: ${fixed_job_name} #${env.BUILD_NUMBER}", webhookURL: env.GS2EMU_WEBHOOK;
+							//discordSend description: "Docker Image: ${DOCKER_ROOT}/${DOCKERIMAGE}:${tag}", footer: "", link: env.BUILD_URL, result: currentBuild.currentResult, title: "[${split_job_name[0]}] Artifact Successful: ${fixed_job_name} #${env.BUILD_NUMBER}", webhookURL: env.GS2EMU_WEBHOOK;
 						}
 					}
 					def dockerImageRef = docker.image("amigadev/docker-base:latest");
