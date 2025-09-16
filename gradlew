@@ -116,6 +116,12 @@ esac
 
 CLASSPATH=$APP_HOME/gradle/wrapper/gradle-wrapper.jar
 
+# Read application properties
+while IFS='=' read -r key value
+do
+    key=$(echo $key | tr '.-' '_')
+    eval ${key}=\${value}
+done < "${GHIDRA_HOME}/Ghidra/application.properties"
 
 # Determine the Java command to use to start the JVM.
 if [ -n "$JAVA_HOME" ] ; then
