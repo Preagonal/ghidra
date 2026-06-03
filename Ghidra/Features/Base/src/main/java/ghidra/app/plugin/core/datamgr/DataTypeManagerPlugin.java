@@ -267,20 +267,30 @@ public class DataTypeManagerPlugin extends ProgramPlugin
 	@Override
 	public void dispose() {
 		tool.removePopupActionProvider(this);
-		dataTypeManagerHandler.closeAllArchives();
-		dataTypeManagerHandler.dispose();
+		if (dataTypeManagerHandler != null) {
+			dataTypeManagerHandler.closeAllArchives();
+			dataTypeManagerHandler.dispose();
+		}
 	}
 
 	@Override
 	public void readConfigState(SaveState saveState) {
-		dataTypeManagerHandler.restore(saveState);
-		provider.restore(saveState);
+		if (dataTypeManagerHandler != null) {
+			dataTypeManagerHandler.restore(saveState);
+		}
+		if (provider != null) {
+			provider.restore(saveState);
+		}
 	}
 
 	@Override
 	public void writeConfigState(SaveState saveState) {
-		dataTypeManagerHandler.save(saveState);
-		provider.save(saveState);
+		if (dataTypeManagerHandler != null) {
+			dataTypeManagerHandler.save(saveState);
+		}
+		if (provider != null) {
+			provider.save(saveState);
+		}
 	}
 
 	@Override

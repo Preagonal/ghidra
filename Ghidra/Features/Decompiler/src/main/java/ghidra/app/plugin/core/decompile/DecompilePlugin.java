@@ -295,6 +295,9 @@ public class DecompilePlugin extends Plugin {
 	@Override
 	public void serviceAdded(Class<?> interfaceClass, Object service) {
 		if (interfaceClass == DecompilerHoverService.class) {
+			if (connectedProvider == null) {
+				return;
+			}
 			DecompilerHoverService hoverService = (DecompilerHoverService) service;
 			connectedProvider.getDecompilerPanel().addHoverService(hoverService);
 			for (DecompilerProvider provider : disconnectedProviders) {
@@ -306,6 +309,9 @@ public class DecompilePlugin extends Plugin {
 	@Override
 	public void serviceRemoved(Class<?> interfaceClass, Object service) {
 		if (interfaceClass == DecompilerHoverService.class) {
+			if (connectedProvider == null) {
+				return;
+			}
 			DecompilerHoverService hoverService = (DecompilerHoverService) service;
 			connectedProvider.getDecompilerPanel().removeHoverService(hoverService);
 			for (DecompilerProvider provider : disconnectedProviders) {
