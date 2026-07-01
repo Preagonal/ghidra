@@ -27,6 +27,6 @@ dependencies {
 	api project(':FileSystem')
 	
 	testImplementation project(path: ':Generic', configuration: 'testArtifacts')
-	api "org.tukaani:xz:1.9"
+	api "org.tukaani:xz:1.12"
 }
 
