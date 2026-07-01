@@ -5,7 +5,7 @@
 # a ghidra release using the command 
 # docker build -f docker/Dockerfile -t <image-name>
 ###############################################################
-FROM alpine:3.20 AS base
+FROM alpine:3.24 AS base
 
 LABEL org.opencontainers.image.title="ghidra" \
 	org.opencontainers.image.description="Docker image for Ghidra" \

@@ -27,21 +27,21 @@ dependencies {
 	api project(':Decompiler')
 	api project(':DecompilerDependent')
 	
-    api("io.github.lisa-analyzer:lisa-analyses:0.1") {
+    api("io.github.lisa-analyzer:lisa-analyses:0.2") {
         exclude group: 'org.apache.commons'
         exclude group: 'org.apache.logging.log4j'
         exclude group: 'com.fasterxml.jackson.core'
         exclude group: 'org.graphstream'
         exclude group: 'org.reflections'
     }
-    api("io.github.lisa-analyzer:lisa-program:0.1") {
+    api("io.github.lisa-analyzer:lisa-program:0.2") {
         exclude group: 'org.apache.commons'
         exclude group: 'org.apache.logging.log4j'
         exclude group: 'com.fasterxml.jackson.core'
         exclude group: 'org.graphstream'
         exclude group: 'org.reflections'
     }
-    api("io.github.lisa-analyzer:lisa-sdk:0.1") {
+    api("io.github.lisa-analyzer:lisa-sdk:0.2") {
         exclude group: 'org.apache.commons'
         exclude group: 'org.apache.logging.log4j'
         exclude group: 'com.fasterxml.jackson.core'
@@ -50,7 +50,7 @@ dependencies {
     }	
 
     // Joda is needed at run time
-    api "joda-time:joda-time:2.14.0"
+    api "joda-time:joda-time:2.14.2"
 }
 
 
